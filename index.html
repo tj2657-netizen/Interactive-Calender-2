@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A playful 2026 calendar for plans, notes, and photos." />
+  <meta name="theme-color" content="#9ad8f7" />
+  <title>Sunny Days 2026</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='34' fill='%23ffd23f' stroke='%232c2416' stroke-width='6'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-art" aria-hidden="true">
+        <svg class="cloud cloud-1" viewBox="0 0 200 110">
+          <path fill="#fff" stroke="#2c2416" stroke-width="5" stroke-linejoin="round" d="M46 78c-20 1-34-14-28-30 4-12 18-16 30-12 4-18 26-28 44-18 14-16 42-10 50 8 20-4 40 14 34 32 10 4 14 20 2 28-12 10-132 4-132-8z" />
+        </svg>
+        <svg class="cloud cloud-2" viewBox="0 0 200 110">
+          <path fill="#fff" stroke="#2c2416" stroke-width="5" stroke-linejoin="round" d="M52 76c-18 2-32-12-26-26 4-10 16-14 26-12 2-14 20-24 36-16 12-12 34-8 42 6 16-2 32 12 28 26 8 2 12 16 2 22-10 8-108 8-108 0z" />
+        </svg>
+        <svg class="sun" viewBox="0 0 120 120">
+          <g stroke="#2c2416" stroke-width="4" stroke-linecap="round">
+            <line x1="60" y1="6" x2="60" y2="22" />
+            <line x1="60" y1="98" x2="60" y2="114" />
+            <line x1="6" y1="60" x2="22" y2="60" />
+            <line x1="98" y1="60" x2="114" y2="60" />
+            <line x1="20" y1="20" x2="32" y2="32" />
+            <line x1="88" y1="88" x2="100" y2="100" />
+            <line x1="20" y1="100" x2="32" y2="88" />
+            <line x1="88" y1="32" x2="100" y2="20" />
+          </g>
+          <circle cx="60" cy="60" r="26" fill="#ffd23f" stroke="#2c2416" stroke-width="4" />
+        </svg>
+      </div>
+      <p class="eyebrow">Paper calendar</p>
+      <h1>Sunny Days <span>2026</span></h1>
+      <p class="tagline">Click any day to add plans, notes, and photos.</p>
+    </header>
+
+    <noscript class="noscript">
+      <p>This calendar needs JavaScript to show your days, notes, and photos.</p>
+    </noscript>
+
+    <div class="workspace">
+      <section class="board card" aria-label="Month calendar">
+        <div class="board-top">
+          <div class="nav">
+            <button type="button" id="prev-month" class="nav-btn" aria-label="Previous month">‹</button>
+            <div class="month-title">
+              <h2 id="month-label">2026</h2>
+              <p id="month-summary" class="month-summary"></p>
+            </div>
+            <button type="button" id="next-month" class="nav-btn" aria-label="Next month">›</button>
+          </div>
+          <button type="button" id="today-btn" class="today-btn">Today</button>
+        </div>
+        <div id="month-pills" class="month-pills"></div>
+        <div class="weekdays" aria-hidden="true">
+          <span class="end">Sun</span>
+          <span>Mon</span>
+          <span>Tue</span>
+          <span>Wed</span>
+          <span>Thu</span>
+          <span>Fri</span>
+          <span class="end">Sat</span>
+        </div>
+        <div id="calendar-grid" class="grid"></div>
+        <ul class="legend">
+          <li><span class="pip pip-event"></span> Plans</li>
+          <li><span class="pip pip-note"></span> Notes</li>
+          <li><span class="pip pip-photo"></span> Photos</li>
+        </ul>
+        <p class="fine-print">Saved in this browser on this device. Arrow keys flip the month while you are not typing.</p>
+      </section>
+
+      <section class="panel card" id="day-panel" aria-label="Selected day"></section>
+    </div>
+
+    <section class="agenda card" aria-labelledby="agenda-title">
+      <div class="agenda-head">
+        <h2 id="agenda-title">Schedule</h2>
+        <p id="agenda-count"></p>
+      </div>
+      <div id="agenda-list"></div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" hidden>
+    <button type="button" class="lightbox-close" data-action="close-lightbox" aria-label="Close photo">×</button>
+    <figure class="lightbox-frame">
+      <img id="lightbox-img" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
